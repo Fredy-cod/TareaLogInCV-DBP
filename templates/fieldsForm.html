@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block subtitle %}Llenar campos{% endblock %}
+
+{% block contentStart %}<form action="{{ url_for('generated') }}" method="post" style="margin:5px;" class="content">{% endblock %}
+
+{% block aside %}
+    <image>
+        <img src="../static/media/profile.jpg" class="profileImg" />
+    </image>
+        <h3><u>Presentación</u></h3>
+        <textarea name="presentation" required="" placeholder="Escriba aquí su presentación" class="textarea"></textarea>    
+{% endblock %} 
+
+{% block secundary %}
+        <h3><u>Contacto</u></h3><br>
+        {% for i in range(noContacto) %}
+            <p class="sectionForm">
+            <input type="text" name="contact{{ i }}" placeholder="Ejm: Facebook, Whatsapp, etc." required="" style="max-width:100px;" />: Nombre del contacto
+            <input type="url" name="url{{ i }}" required="" />: Dirección web
+            </p>
+        {% endfor %}
+{% endblock %}
+
+{% block primary %}<div id="body2">
+        <p class="sectionForm">
+            <label name="completName">Nombre completo: </label>
+            <input type="text" name="completName" required="" placeholder="Ingrese sus nombres y apellidos"  />
+            <label name="workOcuped">Puesto ocupado/buscado: </label>
+            <input type="text" name="workOcuped" required="" placeholder="Ingrese el puesto ocupado/buscado"  />
+        </p>
+        <datalist id="level">
+            <option value="Básico">
+            <option value="Intermedio"> 
+            <option value="Avanzado">
+        </datalist>
+        <p>
+            <h3><u>Idiomas dominados</u></h3>
+            {% for i in range(noIdioma) %}
+                <p class="sectionForm">
+                <input type="text" name="language{{ i }}" placeholder="Ejm: Español, Inglés, Portugués, etc" required="" />: Nombre del idioma
+                <input type="text" list="level"  name="levelLang{{ i }}" required="" />: Nivel de dominio
+                </p>
+            {% endfor %}
+        </p>
+        <p>
+            <h3><u>Programas dominados</u></h3>
+                {% for i in range(noPrograma) %}
+                    <p class="sectionForm">
+                    <input type="text" name="program{{ i }}" placeholder="Ejm: Excel, Word, Autocad, etc" required="" />: Nombre del programa
+                    <input type="text" list="level"  name="levelProg{{ i }}" required="" />: Nivel de dominio
+                    </p>
+                {% endfor %}
+        </p>
+        <p>
+            <h3><u>Experiencia laboral</u></h3>
+                {% for i in range(noTrabajo) %}
+                    <p class="sectionForm">
+                    <input type="text" name="dirWork{{ i }}" placeholder="Departamento- provincia" required="" />: Región de empleo
+                    <input type="date"  name="startWork{{ i }}"  required="" />: Desde
+                    <input type="date" name="endWork{{ i }}" required="" />: Hasta
+                    <input type="text" name="nameCompany{{ i }}" placeholder="Ejm: Novatronic" required="" />: Nombre de empresa
+                    <input type="text" name="nameWork{{ i }}" placeholder="Ejm: Ingeniero de Software" required="" />: Puesto ocupado <br>
+                    <textarea name="review{{ i }}" required="" placeholder="Escriba aquí los logros que obtuvo" class="textarea"></textarea>
+                    </p>
+                {% endfor %}
+        </p>
+        <p>
+            <h3><u>Educación</u></h3>
+                {% for i in range(noEducacion) %}
+                    <p class="sectionForm">
+                        <input type="text" name="dirStudy{{ i }}" placeholder="País- Departamento- provincia" required="" />: Región de institución
+                        <input type="date"  name="startStudy{{ i }}"  required="" />: Desde
+                        <input type="date" name="endStudy{{ i }}" required="" />: Hasta
+                        <input type="text" name="academicDegree{{ i }}" placeholder="Ejm: Licenciatura en Ciencia de la Computación" required="" />: Grado académico
+                        <input type="text" name="instName{{ i }}" placeholder="Ejm: Universidad Católica San Pablo" required="" />: Nombre de institución
+                    </p>
+                {% endfor %}
+        </p>
+        <button class="confirmButton">ENVIAR FORMULARIO</button>
+    </div>
+{% endblock %}
+
+{% block contentEnd %}</form>{% endblock %}

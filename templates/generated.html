@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block subtitle %}Mi Curriculum Vitae{% endblock %}
+
+{% block aside %}
+    <image>
+        <img src="../static/media/profile.jpg" class="profileImg"/>
+    </image>
+    <h3><u>Presentación</u></h3>
+    <p>
+        {{ presentacion }}
+    </p>
+{% endblock %}
+
+{% block primary %}
+    <div id="body3">
+        <h1 style="text-align: right;">{{ nombres }}</h1>
+        <h3 style="text-align: right;">{{ puesto }} </h3><hr>
+        <ul>
+            <li>
+                <h3><u>Idiomas dominados</u></h3>
+                <table>
+                    <tr>
+                        <th class="tableItem">Idioma</th>
+                        <th class="tableItem">Nivel</th>
+                    </tr>
+                    {% for i in listLanguage %}
+                        <tr>
+                            <td class="tableItem">{{ i[0] }}</td>
+                            <td class="tableItem">{{ i[1] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </li>
+            <hr>
+            <li>
+                <h3><u>Programas dominados</u></h3>
+                <table>
+                    <tr>
+                        <th class="tableItem">Programa</th>
+                        <th class="tableItem">Nivel</th>
+                    </tr>
+                    {% for i in listProgram %}
+                        <tr>
+                            <td class="tableItem">{{ i[0] }}</td>
+                            <td class="tableItem">{{ i[1] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </li>
+            <hr>
+            <li>
+                <h3><u>Puestos ocupados</u></h3>
+                {% for i in listWorks %}
+                    <div class="sectionForm">
+                        <small>{{ i[0] }}</small>
+                        <h5>{{ i[1] }} - {{ i[2] }}</h5>
+                        <h4>{{ i[3] }}</h4>
+                        <h5>{{ i[4] }}</h5>
+                        <h4>{{ i[5] }}</h4>
+                    </div>
+                {% endfor %}
+            </li>
+            <hr>
+            <li>
+                <h3><u>Educación</u></h3>
+                {% for i in listEducation %}
+                    <div class="sectionForm">
+                        <small>{{ i[0] }}</small>
+                        <h5>{{ i[1] }} - {{ i[2] }}</h5>
+                        <h4>{{ i[3] }}</h4>
+                        <h5>{{ i[4] }}</h5>
+                    </div>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block secundary %}
+    <h3><u>Contactos</u></h3>
+        <ul>
+            {% for i in listContact %}
+                <li><a href="{{ i[1] }}"  >{{ i[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    
+{% endblock %}

@@ -1,0 +1,185 @@
+body {
+    background: #6ab04c;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+.container {
+    background-color: #badc58;
+    margin-top: 5px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-row: auto;
+    grid-gap: 10px;
+    grid-template-areas: "header"
+                         "menu"
+                         "content"
+                         "footer";
+}
+
+.container .header, .container .menu, .container .content, .container .footer  {
+    padding: 3px;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.content {
+    grid-area: content;
+    text-align: left;
+    padding: 3px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 5px;
+    grid-template-areas: "aside primary"
+                         "secundary primary";
+}
+
+.content #primary, .content #aside, .content #secundary {
+    border-radius: 10px;
+    background: #b8e994;
+    padding: 10px;
+}
+
+.header {
+    background: black;
+    color: white;
+    grid-area: header;
+}
+
+.menu {
+    background-color: #b8e994;
+    grid-area: menu;
+    text-align: right;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    padding: 3px;
+    margin: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.button:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+.confirmButton {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 3px;
+    margin: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.confirmButton:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
+#aside {
+    grid-area: aside;
+}
+
+#primary {
+    grid-area: primary;
+}
+
+#secundary {
+    grid-area: secundary;
+}
+
+.footer {
+    background: black;
+    color: white;
+    grid-area: footer;
+}
+
+@media screen and (max-width: 680px) {
+.content {
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr;
+    grid-template-areas: "aside"
+                         "primary"
+                         "secundary";
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.aside {
+    column-count: 2;
+}
+
+.menu {
+    column-count: 1;
+}
+}
+
+.sectionForm {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #f6e58d;
+}
+
+.textarea {
+    height: 100px;
+    max-height: 200px;
+    min-width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+#subtitle {
+    margin:0;
+    text-align: center;
+}
+
+#modelCV {
+    width:100%;
+    border-radius: 10px;
+    margin: 3px;
+    box-sizing: border-box;
+}
+
+#body3 ul {
+    list-style: none;
+}
+
+.tableItem {
+    min-width: 120px;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#body3 > ul > li > div > small, h5, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.profileImg {
+    width:100%;
+    border-radius: 10px;
+    margin: 3px;
+    box-sizing: border-box;
+}

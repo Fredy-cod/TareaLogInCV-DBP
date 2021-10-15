@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block subtitle %}Generar N° de campos de CV{% endblock %}
+
+
+{% block aside %}
+    <div>
+        <h3><b>Modelo de CV</b></h3>
+        <image>
+            <img src="../static/media/CVmodel.png"  id="modelCV"/>
+        </image>     
+    </div>
+{% endblock %}
+
+
+{% block primary %}
+    <div id="body1">
+        <form action="{{ url_for('fieldsForm') }}" method="post" style="margin:5px;">
+            <b>
+            <p class="formItem">
+                <input type="number" name="noContact"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>
+                : N° DE CONTACTOS
+            </p>
+            <p class="formItem">
+                <input type="number" name="noProgram"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>
+                : N° DE PROGRAMAS DOMINADOS
+            </p>
+            <p class="formItem">
+                <input type="number" name="noLanguage"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>
+                : N° DE LENGUAJES DOMINADOS
+            </p>
+            <p class="formItem">
+                <input type="number" name="noWorks"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>
+                : N° DE PUESTOS OCUPADOS
+            </p>
+            <p class="formItem">
+                <input type="number" name="noEducation"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>
+                : N° DE INSTITUCIONES EDUCATIVAS
+            </p>
+            </b>
+            <button class="confirmButton">ENVIAR DATOS</button>
+        </form>
+    </div>
+{% endblock %}

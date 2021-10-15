@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Inicio de sesión</title>
+        <meta name="author" content="Fredy Goolberth Quispe Neira" />
+        <meta name="keywords" content="Flask, Log_in, CVGen, Html, CSS" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesLi.css') }}" />
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="title">CV Generator</h1>
+            <h3>{{ message }}</h3>
+            <form action="{{ url_for('index') }}"  method="post">
+                <label name="username" >Nombre de usuario</label><br>
+                <input type="text" name="username" class="input" placeholder="Ingrese su nombre de usuario" required="" /><br>
+                <label name="password" >Contraseña</label><br>
+                <input type="password" name="password" class="input" placeholder="Ingrese su contraseña" required="" /><br>
+                <input type="submit" class="submit" />
+            </form>
+        </div>
+    </body>
+
+</html>

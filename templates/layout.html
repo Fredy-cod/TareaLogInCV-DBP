@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Fredy Quispe Neira"/>
+        <title>CV Generator</title>
+        <link rel="shortcut icon" href="../static/media/favicon.ico" />
+        <meta name="keywords" content="HTML5, CSS3, CV Generator, Flask"/>
+        <link rel="stylesheet" href="../static/css/styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <p><h1>CURRICULUM VITAE GENERATOR</h1></p>
+            </div>
+            <nav class="menu">
+                <h2 id="subtitle">{% block subtitle %}{% endblock %}</h2>
+                <ul>
+                    <li><button class="button">Principal</button></li>
+                    <li><button class="button">Ayuda</button></li>
+                    <li><button class="button">Acerca de</button></li>
+                </ul>
+            </nav>
+            <div class="content">
+                {% block contentStart %}{% endblock %}
+                    <aside id="aside">
+                        {% block aside %}{% endblock %}
+                    </aside>
+                    <section id="primary">
+                        {% block primary %}{% endblock %}
+                    </section>
+                    <section id="secundary">
+                        {% block secundary %}{% endblock %}
+                    </section>
+                {% block contentEnd %}{% endblock %}
+            </div>
+            <footer class="footer">
+                <p>Copyright © 2021-2022<br>TODOS LOS DERECHOS RESERVADOS</p>
+                <button class="button"><a href=mailto:fredy.quispe@ucsp.edu.pe >Contáctame</a></button>
+            </footer>
+        </div>
+    </body>
+</html>
