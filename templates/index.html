@@ -7,7 +7,7 @@
     <div>
         <h3><b>Modelo de CV</b></h3>
         <image>
-            <img src="../static/media/CVmodel.png"  id="modelCV"/>
+            <img src="{{ url_for('static', filename= 'media/CVmodel.png') }}"  id="modelCV"/>
         </image>     
     </div>
 {% endblock %}
@@ -15,7 +15,7 @@
 
 {% block primary %}
     <div id="body1">
-        <form action="{{ url_for('fieldsForm') }}" method="post" style="margin:5px;">
+        <form action="{{ url_for('fieldForm') }}" method="post" style="margin:5px;">
             <b>
             <p class="formItem">
                 <input type="number" name="noContact"  placeholder="Del 1 al 9" max="9" min="1" required="" style="width: 70px;"/>

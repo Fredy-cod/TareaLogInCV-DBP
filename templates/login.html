@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="utf-8" />
-        <title>Inicio de sesión</title>
-        <meta name="author" content="Fredy Goolberth Quispe Neira" />
-        <meta name="keywords" content="Flask, Log_in, CVGen, Html, CSS" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesLi.css') }}" />
-        <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}" ></script>
+        <meta charset="utf8" />
+        <title>Verificación</title>
+        <link rel="stylesheet" href="../static/css/styles_login.css" />
     </head>
-    <body>
-        <div class="container">
-            <h1 id="title">CV Generator</h1>
-            <h3>{{ message }}</h3>
-            <form action="{{ url_for('index') }}"  method="post">
-                <label name="username" >Nombre de usuario</label><br>
-                <input type="text" name="username" class="input" placeholder="Ingrese su nombre de usuario" required="" /><br>
-                <label name="password" >Contraseña</label><br>
-                <input type="password" name="password" class="input" placeholder="Ingrese su contraseña" required="" /><br>
-                <input type="submit" class="submit" />
-            </form>
-        </div>
+    <body>  
+        
+        <div class="login-page">
+            <p>
+                <h1 style="text-align: center; background: black; color: white; font-size: 55px; border-radius: 5px;">CV Generator</h1>
+                <h3>Mensaje: {{ message }}</h3>
+            </p>
+            <div class="form">
+              <form class="register-form" name="register" method="post" action="{{ url_for('index') }}" >
+                <input type="text" name="username" placeholder="Nombre de usuario" value="" required/>
+                <input type="password" name="password" placeholder="Contraseña" value="" required/>
+                <input type="text" name="email" placeholder="Correo electrónico" required/>
+                <button>Crear cuenta</button>
+                <p class="message">¿Estás registrado? <a href="#" >Iniciar sesión</a></p>
+              </form>
+              <form class="login-form" name="initializer" method="post" action="{{ url_for('index') }}" >
+                <input type="text" name="username" placeholder="Nombre de usuario" value="" required/>
+                <input type="password" name="password" placeholder="Contraseña" value="" required/>
+                <button>Iniciar sesión</button>
+                <p class="message">¿No estás registrado? <a href="#" >Crear nueva cuenta</a></p>
+              </form>
+            </div>
+          </div>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../static/js/script_login.js"></script>
     </body>
-
 </html>
