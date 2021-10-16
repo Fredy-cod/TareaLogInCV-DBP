@@ -16,15 +16,15 @@
               <form class="register-form" name="register" method="post" action="{{ url_for('index') }}" >
                 <input type="text" name="username" placeholder="Nombre de usuario" value="" required/>
                 <input type="password" name="password" placeholder="Contraseña" value="" required/>
-                <input type="text" name="email" placeholder="Correo electrónico" required/>
+                <input type="text" name="email" id="email" placeholder="Correo electrónico" value="" required/>
                 <button>Crear cuenta</button>
-                <p class="message">¿Estás registrado? <a href="#" >Iniciar sesión</a></p>
+                <p class="message">¿Estás registrado? <a href="" >Iniciar sesión</a></p>
               </form>
               <form class="login-form" name="initializer" method="post" action="{{ url_for('index') }}" >
                 <input type="text" name="username" placeholder="Nombre de usuario" value="" required/>
                 <input type="password" name="password" placeholder="Contraseña" value="" required/>
                 <button>Iniciar sesión</button>
-                <p class="message">¿No estás registrado? <a href="#" >Crear nueva cuenta</a></p>
+                <p class="message">¿No estás registrado? <a href="" >Crear nueva cuenta</a></p>
               </form>
             </div>
           </div>

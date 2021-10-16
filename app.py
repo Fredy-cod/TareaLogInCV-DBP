@@ -38,17 +38,20 @@ def index():
         username= request.form.get("username")
         password= request.form.get("password")
         email= request.form.get("email")
-        if email!= None: #Si se envía el formulario de registro de cuenta
-            loadUsers()
+        print(email)
+        if email!=None: #Si se envía el formulario de registro de cuenta
             Users.append(User(username, password, email))
-            #saveUsers()
+            saveUsers()
             return render_template("login.html", message="Registro concluido con éxito, puede iniciar sesión.")
-        else: #Si se envía el formulario de inicio de sesión
             
-            session["userInSession"]= username
-            return render_template("index.html")
+        else: #Si se envía el formulario de inicio de sesión
+            for i in Users:
+                if username == i.username and password == i.password:
+                    session["userInSession"]= username
+                    return render_template("index.html")
+            return render_template("login.html", message="Los datos ingresados son incorrectos, por favor ingrese un nombre de usuario y contraseña válidos.")
     else:
-        return render_template("login.html")
+        return render_template("login.html", message="Debe iniciar sesión o registrarse.")
     
     
 @app.route("/fieldForm", methods=['POST'])
@@ -135,7 +138,8 @@ def saveUsers():
     for i in Users:
         i.save()
     dataUsers.close()
-    Users.clear()
+    #Users.clear()
 
 if __name__=="__main__":
+    loadUsers()
     app.run(debug=True)
